@@ -15,7 +15,7 @@ export type MainTabParamList = {
 
 export type AuthStackParamList = {
   Welcome: undefined;
-  SignIn: undefined;
+  SignIn: { isSignUp?: boolean };
 };
 
 declare global {

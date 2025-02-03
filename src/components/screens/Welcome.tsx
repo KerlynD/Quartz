@@ -7,6 +7,9 @@ import theme from '../../theme';
 
 type WelcomeScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Welcome'>;
 
+/**
+ * Welcome screen component that serves as the entry point for authentication
+ */
 const WelcomeScreen = () => {
   const navigation = useNavigation<WelcomeScreenNavigationProp>();
 
@@ -21,23 +24,16 @@ const WelcomeScreen = () => {
 
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            style={[styles.button, styles.appleButton]}
-            onPress={() => navigation.navigate('SignIn')}
+            style={[styles.button, styles.primaryButton]}
+            onPress={() => navigation.navigate('SignIn', { isSignUp: true })}
           >
-            <Text style={[styles.buttonText, styles.appleButtonText]}>Continue with Apple</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.button, styles.googleButton]}
-            onPress={() => navigation.navigate('SignIn')}
-          >
-            <Text style={styles.buttonText}>Continue with Google</Text>
+            <Text style={[styles.buttonText, styles.primaryButtonText]}>Get Started</Text>
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text style={styles.signUpText}>
-            Don't have an account? <Text style={styles.signUpLink}>Sign up!</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignIn', { isSignUp: false })}>
+          <Text style={styles.signInText}>
+            Already have an account? <Text style={styles.signInLink}>Sign in</Text>
           </Text>
         </TouchableOpacity>
       </View>
@@ -81,30 +77,24 @@ const styles = StyleSheet.create({
     borderRadius: theme.borderRadius.md,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.background.secondary,
   },
-  appleButton: {
-    backgroundColor: theme.colors.text.primary,
-  },
-  googleButton: {
-    backgroundColor: theme.colors.background.secondary,
-    borderWidth: 1,
-    borderColor: theme.colors.card.border,
+  primaryButton: {
+    backgroundColor: theme.colors.primary,
   },
   buttonText: {
     fontSize: theme.typography.sizes.md,
     fontWeight: '600',
     color: theme.colors.text.primary,
   },
-  appleButtonText: {
+  primaryButtonText: {
     color: theme.colors.background.primary,
   },
-  signUpText: {
+  signInText: {
     textAlign: 'center',
     color: theme.colors.text.secondary,
     fontSize: theme.typography.sizes.sm,
   },
-  signUpLink: {
+  signInLink: {
     color: theme.colors.primary,
     fontWeight: '600',
   },

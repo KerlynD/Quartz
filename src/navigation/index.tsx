@@ -40,13 +40,19 @@ const MainNavigator = () => (
     screenOptions={({ route }) => ({
       headerShown: false,
       tabBarStyle: {
-        backgroundColor: theme.colors.background.secondary,
-        borderTopColor: theme.colors.card.border,
-        height: 60,
-        paddingBottom: 8,
+        backgroundColor: theme.colors.background.primary,
+        borderTopWidth: 0,
+        elevation: 0,
+        height: 80,
+        paddingTop: 8,
+        paddingBottom: 20,
       },
       tabBarActiveTintColor: theme.colors.primary,
       tabBarInactiveTintColor: theme.colors.text.secondary,
+      tabBarLabelStyle: {
+        fontSize: 12,
+        fontWeight: '500',
+      },
       tabBarIcon: ({ focused }) => (
         <TabBarIcon focused={focused} name={route.name.toLowerCase() as any} />
       ),
