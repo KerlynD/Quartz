@@ -11,7 +11,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ios: {
     supportsTablet: false,
     bundleIdentifier: 'com.kerlyn.quartz',
-    googleServicesFile: './GoogleService-Info.plist',
+    googleServicesFile: './config/GoogleService-Info.plist',
     config: {
       usesNonExemptEncryption: false
     },

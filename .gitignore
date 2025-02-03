@@ -52,3 +52,7 @@ android/app/build/
 
 # Firebase config
 google-services.json
+
+# Sensitive configuration files
+/config/
+*.plist
